@@ -1,8 +1,17 @@
 class Api::LeaderboardController < ApplicationController
 
   def index
-    @leaderboards = Leaderboard.all
-    render json: @leaderboards
+    @leaderboards = Leaderboard.all.sort_by { |h| h[:no_of_checkins] }.reverse
+    # render json: @leaderboards
+    respond_to do |format|
+      format.json { render json: @leaderboards}
+    end
+  end
+
+  def create
+  end
+
+  def show
   end
 
   private
