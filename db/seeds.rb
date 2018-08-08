@@ -6,8 +6,9 @@
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
 array = []
+
 10.times do
-  leaderboard = Leaderboard.create(rank: Faker::Number.between(1, 30), no_of_checkins: Faker::Number.between(1, 200))
+  leaderboard = Leaderboard.create(no_of_checkins: Faker::Number.between(1, 200))
   array << leaderboard
 end
 
