@@ -1,13 +1,6 @@
 class User < ApplicationRecord
-  validates :email, presence: true
-  validates :email, uniqueness: true
-  
-  mount_uploader :avatar, AvatarUploader
-  has_secure_password
-
-  has_many :leaderboards
-  has_many :locations, through: :leaderboards
+  # Include default devise modules. Others available are:
+  # :confirmable, :lockable, :timeoutable and :omniauthable
+  devise :database_authenticatable, :registerable,
+         :recoverable, :rememberable, :trackable, :validatable
 end
-
-#Carrier Wave Documentation
-#https://github.com/carrierwaveuploader/carrierwave
