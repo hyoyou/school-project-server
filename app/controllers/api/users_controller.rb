@@ -13,9 +13,11 @@ class Api::UsersController < ApplicationController
     render json: @user
   end
 
-  def signup
+  def create
+    
     user = User.new(user_params)
     if user.save
+      
       token = Auth.create_token(user)
       returned_user = Auth.decode_token(token)
 
@@ -49,8 +51,12 @@ class Api::UsersController < ApplicationController
   end
 
   def user_params
-    params.require(:user).permit(:password, :username, :email)
+    params.require(:user).permit(:password, :password_confirmation, :username, :email)
   end
+
+  # def configure_permitted_parameters
+  #   devise_parameter_sanitizer.for(:signup) {|u| u.permit(:username, :email, :password, :password_confirmation)}
+  # end
 
 end
 
