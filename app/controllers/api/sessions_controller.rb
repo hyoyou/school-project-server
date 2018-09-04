@@ -2,10 +2,11 @@ require 'auth'
 
 class Api::SessionsController < ApplicationController
 
-  def login
+  def create
     
-    user = User.find_by(email: params[:email])
-    if user && user.authenticate(params[:password])
+    user = User.find_by(email: params[:user][:email])
+    binding.pry
+    if user && user.valid_password?(params[:password])
       token = Auth.create_token(user)
       returned_user = Auth.decode_token(token)
       
