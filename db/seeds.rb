@@ -7,10 +7,6 @@
 #   Character.create(name: 'Luke', movie: movies.first)
 array = []
 
-10.times do
-  leaderboard = Leaderboard.create(no_of_checkins: Faker::Number.between(1, 200))
-  array << leaderboard
-end
 
 location = Location.all[0]
 user = User.create(
