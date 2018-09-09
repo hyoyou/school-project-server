@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20180908222013) do
+ActiveRecord::Schema.define(version: 20180909230935) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -20,12 +20,9 @@ ActiveRecord::Schema.define(version: 20180908222013) do
     t.string "city"
     t.string "name"
     t.string "address"
-    t.integer "user_id"
   end
 
   create_table "user_locations", force: :cascade do |t|
-    t.integer "rank"
-    t.integer "no_of_checkins"
     t.integer "user_id"
     t.integer "location_id"
     t.datetime "created_at", null: false
@@ -39,6 +36,7 @@ ActiveRecord::Schema.define(version: 20180908222013) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.string "avatar"
+    t.integer "no_of_checkins", default: 0
   end
 
 end

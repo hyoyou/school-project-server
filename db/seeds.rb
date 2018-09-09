@@ -5,32 +5,18 @@
 #
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
-# array = []
-#
-# location = Location.all[0]
-# user = User.create(
-#   email: Faker::Internet.email,
-#   password: Faker::Internet.password(8)
-# )
-#
-# array.each do |lb|
-#   lb.user_id = user.id
-#   lb.location_id = location.id
-#   lb.save
-#   next
-# end
+
 
 10.times do
-    user = User.create(email: Faker::Internet.email, password: Faker::Internet.password(8))
+    user = User.create(email: Faker::Internet.email, password: Faker::Internet.password(8), no_of_checkins: Faker::Number.between(1,400))
 
-    user_location = UserLocation.create(rank: Faker::Number.between(0, 11), no_of_checkins: Faker::Number.number(2))
+    user_location = UserLocation.create
     user_location.user = user
     user_location.save
 
 
     Location.all.each do |location|
-      location.user = user
-      location.save
+
       user_location.location = location
       user_location.save
     end
