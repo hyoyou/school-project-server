@@ -5,8 +5,8 @@ class User < ApplicationRecord
   has_secure_password
 
 
-  has_many :leaderboards
-  has_many :locations, through: :leaderboards
+  has_many :user_locations
+  has_many :locations, through: :user_locations
 end
 
 #Carrier Wave Documentation
