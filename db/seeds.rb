@@ -8,7 +8,7 @@
 
 
 10.times do
-    user = User.create(email: Faker::Internet.email, password: Faker::Internet.password(8), no_of_checkins: Faker::Number.between(1,400))
+    user = User.create(username: Faker::HarryPotter.character, email: Faker::Internet.email, password: Faker::Internet.password(8), no_of_checkins: Faker::Number.between(1,400))
 
     user_location = UserLocation.create
     user_location.user = user
