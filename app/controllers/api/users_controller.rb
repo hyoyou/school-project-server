@@ -5,8 +5,8 @@ class Api::UsersController < ApplicationController
   before_action :set_user, only: [:show, :update, :destroy]
 
   def index
-    render json: User.all
-    
+    @users = User.all.sort { |a,b| b.no_of_checkins <=> a.no_of_checkins }
+    render json: @users
   end
 
   def show
@@ -22,7 +22,7 @@ class Api::UsersController < ApplicationController
       returned_user = Auth.decode_token(token)
 
       render json: returned_user, status: 200
-      
+
     else
       render json: {message: user.errors}, status: 400
     end
@@ -44,7 +44,7 @@ class Api::UsersController < ApplicationController
     end
   end
 
-  private 
+  private
 
   def set_user
     @user = User.find_by(id: params[:id])
