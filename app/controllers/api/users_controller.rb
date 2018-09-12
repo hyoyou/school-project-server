@@ -5,8 +5,8 @@ class Api::UsersController < ApplicationController
   before_action :set_user, only: [:show, :update, :destroy]
 
   def index
-    render json: User.all
-    
+    @users = User.all.sort { |a,b| b.no_of_checkins <=> a.no_of_checkins }
+    render json: @users
   end
 
   def show
@@ -43,7 +43,7 @@ class Api::UsersController < ApplicationController
     end
   end
 
-  private 
+  private
 
   def set_user
     @user = User.find_by(id: params[:id])
