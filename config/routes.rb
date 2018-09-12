@@ -6,6 +6,7 @@ Rails.application.routes.draw do
     resources :locations, only: [:index, :new, :create, :show]
     resources :leaderboards, only: [:index, :create, :show]
     resources :sessions, only: [:create, :destroy]
+    resources :user_locations, only: [:index, :show]
 
   end
 
