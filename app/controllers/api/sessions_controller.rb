@@ -3,7 +3,6 @@ require 'auth'
 class Api::SessionsController < ApplicationController
 
   def create
-    
     user = User.find_by(email: params[:user][:email])
   
     if user && user.valid_password?(params[:password])
@@ -15,6 +14,16 @@ class Api::SessionsController < ApplicationController
       render json: {errors: "Email or Password is incorrect"}, status: 500
     end
 
+  end
+
+  def find
+    user = Auth.decode_token(params[:token])
+    
+    if user
+      render json: { user: user }
+    else
+      render json: { errors: { message: "Unable to find user" } }, status: 401
+    end
   end
 
 end

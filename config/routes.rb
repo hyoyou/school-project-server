@@ -6,11 +6,10 @@ Rails.application.routes.draw do
     resources :locations, only: [:index, :new, :create, :show]
     resources :user_locations, only: [:index, :show]
 
-    post "/signup", to: "users#signup"
+    post "/signup", to: "users#create"
     post "/login", to: "sessions#login"
     get "/logout", to: "sessions#logout"
-
-
+    post "/find", to: "sessions#find"
   end
 
 end

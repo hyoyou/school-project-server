@@ -14,7 +14,6 @@ class Api::UsersController < ApplicationController
   end
 
   def create
-  
     user = User.new(user_params)
     if user.save
       
@@ -26,6 +25,10 @@ class Api::UsersController < ApplicationController
     else
       render json: {message: user.errors}, status: 400
     end
+  end
+
+  def edit
+    @user.user_locations.build.build_location
   end
 
   def update
@@ -51,7 +54,8 @@ class Api::UsersController < ApplicationController
   end
 
   def user_params
-    params.require(:user).permit(:password, :password_confirmation, :username, :email)
+    params.require(:user).permit(:password, :password_confirmation, :username, :email, location_ids: [],
+                                 user_locations_attributes: [:id, location_attributes: [:id]])
   end
 
 end
