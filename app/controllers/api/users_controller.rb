@@ -10,7 +10,7 @@ class Api::UsersController < ApplicationController
   end
 
   def show
-    render json: @user
+    render json: {user: { id: @user.id, username: @user.username, email: @user.email, no_of_checkins: @user.no_of_checkins, user_locations_attributes: @user.user_locations }}
   end
 
   def create
@@ -19,7 +19,7 @@ class Api::UsersController < ApplicationController
       
       token = Auth.create_token(user)
       returned_user = Auth.decode_token(token)
-      render json: {user: user, token: token}, status: 200
+      render json: {user: { id: user.id, username: user.username, email: user.email, no_of_checkins: user.no_of_checkins, user_locations_attributes: user.user_locations }, token: token}, status: 200
       
     else
       render json: {message: user.errors}, status: 400

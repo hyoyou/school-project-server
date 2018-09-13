@@ -8,7 +8,7 @@ class Api::SessionsController < ApplicationController
     if user && user.valid_password?(params[:user][:password])
       token = Auth.create_token(user)
       returned_user = Auth.decode_token(token)
-      render json: {user: user, token: token}, status: 200
+      render json: {user: { id: user.id, username: user.username, email: user.email, no_of_checkins: user.no_of_checkins, user_locations_attributes: user.user_locations }, token: token}, status: 200
     else
       render json: {errors: "Email or Password is incorrect"}, status: 500
     end
@@ -19,7 +19,7 @@ class Api::SessionsController < ApplicationController
     user = Auth.decode_token(params[:token])
     
     if user
-      render json: { user: user }
+      render json: { user: { id: user.id, username: user.username, email: user.email, no_of_checkins: user.no_of_checkins, user_locations_attributes: user.user_locations } }
     else
       render json: { errors: { message: "Unable to find user" } }, status: 401
     end
