@@ -10,15 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-<<<<<<< HEAD
-<<<<<<< HEAD
-ActiveRecord::Schema.define(version: 20180904061603) do
-=======
-ActiveRecord::Schema.define(version: 20180904030132) do
->>>>>>> Leaderboard
-=======
 ActiveRecord::Schema.define(version: 20180909230935) do
->>>>>>> Leaderboard
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -50,14 +42,10 @@ ActiveRecord::Schema.define(version: 20180909230935) do
     t.inet "last_sign_in_ip"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-<<<<<<< HEAD
     t.string "username"
+    t.integer "no_of_checkins", default: 0
     t.index ["email"], name: "index_users_on_email", unique: true
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
-=======
-    t.string "avatar"
-    t.integer "no_of_checkins", default: 0
->>>>>>> Leaderboard
   end
 
 end
