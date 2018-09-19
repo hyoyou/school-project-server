@@ -28,6 +28,9 @@ gem 'rack-cors'
 gem 'jwt', '~> 1.5.6'
 gem 'carrierwave', '~> 1.0'
 gem 'devise'
+gem 'therubyracer'
+gem 'omniauth'
+gem 'omniauth-digitalocean'
 
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
