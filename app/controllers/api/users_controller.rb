@@ -29,11 +29,12 @@ class Api::UsersController < ApplicationController
   def edit
     @user.user_locations.build.build_location
   end
-
+  
   def update
-    binding.pry
+  
     if @user.update(user_params)
       render json: {user: { id: @user.id, username: @user.username, email: @user.email, no_of_checkins: @user.no_of_checkins, user_locations_attributes: @user.user_locations }}
+      
     else
       render json: {message: @user.errors}, status: 400
     end
