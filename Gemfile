@@ -47,4 +47,4 @@ gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
 
 gem 'faker'
 
-ruby '2.4.4'
+ruby '2.3.3'
