@@ -40,9 +40,9 @@ module SchoolProjectApi
     
         resource '*',
           
-          headers: 'Access.Control-Allow-Origin', '*'
+          headers: 'Access.Control-Allow-Origin', '*',
           
-          headers: 'Access.Control-Request-Method' 'GET, POST, OPTIONS'
+          headers: 'Access.Control-Request-Method' 'GET, POST, OPTIONS',
           methods: [:get, :post, :put, :patch, :delete, :options, :head]
       end
     end
