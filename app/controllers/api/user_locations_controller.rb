@@ -2,6 +2,7 @@ class Api::UserLocationsController < ApplicationController
   #  helper_method :product
 
     def index
+      
       @user_locations = UserLocation.all
       render json: @user_locations
     end
