@@ -1,4 +1,4 @@
-require 'auth'
+require 'Auth'
 
 class Api::SessionsController < ApplicationController
 
