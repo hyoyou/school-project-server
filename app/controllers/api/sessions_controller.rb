@@ -3,10 +3,10 @@ require 'auth'
 class Api::SessionsController < ApplicationController
 
   #Disable CSFR Protection
-  skip_before_action :verify_authenticity_token
+  #skip_before_action :verify_authenticity_token
 
   #Be sure to enable JSON
-  respond_to :html, :json
+  #respond_to :html, :json
 
   def create
 
