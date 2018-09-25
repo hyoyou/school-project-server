@@ -19,6 +19,4 @@ class Api::LeaderboardsController < ApplicationController
   def leaderboard_params
       params.require(:leaderboard).permit(:rank, :no_of_checkins, :location_id, :user_id)
   end
-
-
 end

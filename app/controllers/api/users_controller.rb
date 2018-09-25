@@ -1,7 +1,6 @@
 require 'auth'
 
 class Api::UsersController < ApplicationController
-
   before_action :set_user, only: [:show, :update, :destroy]
 
   def index
@@ -32,7 +31,6 @@ class Api::UsersController < ApplicationController
   end
   
   def update
-    
     if @user.update(user_params)
       render json: {user: { id: @user.id, username: @user.username, email: @user.email, no_of_checkins: @user.no_of_checkins, user_locations_attributes: @user.user_locations }}
       
@@ -50,7 +48,6 @@ class Api::UsersController < ApplicationController
   end
 
   private
-
   def set_user
     @user = User.find_by(id: params[:id])
   end
@@ -59,7 +56,6 @@ class Api::UsersController < ApplicationController
     params.require(:user).permit(:password, :password_confirmation, :username, :email, location_ids: [],
                                  user_locations_attributes: [:id, location_attributes: [:id]])
   end
-
 end
 
 #Carrier Wave Documentation

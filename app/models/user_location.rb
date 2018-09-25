@@ -10,5 +10,4 @@ class UserLocation < ApplicationRecord
     subject_location = Location.find_by(id: loc_id)
     self.location = subject_location
   end
-
 end
