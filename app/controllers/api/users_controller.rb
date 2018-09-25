@@ -5,7 +5,8 @@ class Api::UsersController < ApplicationController
   before_action :set_user, only: [:show, :update, :destroy]
 
   def index
-    @users = User.all.sort { |a,b| b.no_of_checkins <=> a.no_of_checkins }
+    @users = User.all.sort { |a, b| b.locations.size <=> a.locations.size }
+    @users.map { |user| user.no_of_checkins = user.locations.size }
     render json: @users
   end
 
