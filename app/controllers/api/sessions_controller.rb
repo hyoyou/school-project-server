@@ -2,6 +2,12 @@ require 'auth'
 
 class Api::SessionsController < ApplicationController
 
+  #Disable CSFR Protection
+  #skip_before_action :verify_authenticity_token
+
+  #Be sure to enable JSON
+  #respond_to :html, :json
+
   def create
     user = User.find_by(email: params[:user][:email])
     

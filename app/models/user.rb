@@ -5,8 +5,8 @@ class User < ApplicationRecord
          :recoverable, :rememberable, :trackable, :validatable
 
   validates :email, presence: true
-  # validates :email, :username, uniqueness: true
-  mount_uploader :avatar, AvatarUploader
+  validates :email, uniqueness: true
+  #mount_uploader :avatar, AvatarUploader
 
   has_many :user_locations
   has_many :locations, through: :user_locations

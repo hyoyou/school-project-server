@@ -2,7 +2,7 @@ class UserLocation < ApplicationRecord
   belongs_to :user
   belongs_to :location
 
-  validates :location_id, uniqueness: true
+  #validates :location_id, uniqueness: true
 
   def location_attributes=(location_attributes)
     loc_id = location_attributes[:id]
