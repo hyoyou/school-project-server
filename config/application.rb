@@ -22,7 +22,7 @@ module SchoolProjectApi
     config.load_defaults 5.1
 
     config.action_dispatch.default_headers = {
-      'Access.Control-Allow-Origin' => 'http://ww-leaderboard.herokuapp.com',
+      'Access.Control-Allow-Origin' => '*',
       'Access.Control-Request-Method' => %w{GET POST OPTIONS}.join(",")
     }
     # Settings in config/environments/* take precedence over those specified here.
