@@ -1,5 +1,5 @@
 require 'jwt'
-require 'pry'
+
 class Auth
 
   def self.create_token(user_object)
