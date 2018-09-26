@@ -34,5 +34,15 @@ module SchoolProjectApi
     # Skip views, helpers and assets when generating a new resource.
     config.api_only = true
 
+    # Rails.application.config.middleware.insert_before 0, Rack::Cors do
+    #   allow do
+    #     origins '*'
+    
+    #     resource '*',
+    #       headers: 'Access.Control-Allow-Origin', '*',
+    #       headers: 'Access.Control-Request-Method' 'GET, POST, OPTIONS',
+    #       methods: [:get, :post, :put, :patch, :delete, :options, :head]
+    #   end
+    # end
   end
 end
