@@ -26,9 +26,9 @@ class Api::UsersController < ApplicationController
     end
   end
 
-  def edit
-    @user.user_locations.build.build_location
-  end
+  # def edit
+  #   @user.user_locations.build.build_location
+  # end
   
   def update
     if @user.update(user_params)
