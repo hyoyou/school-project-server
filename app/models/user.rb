@@ -21,7 +21,7 @@ class User < ApplicationRecord
         if !self.user_locations.map(&:location_id).include? subject_location[:id]
           self.user_locations.build(:location_id => subject_location[:id])
         else
-          self.errors.add(:message, "User has already checked into this location.")
+          self.errors.add(message: "User has already checked into this location.")
         end
       end
     end
