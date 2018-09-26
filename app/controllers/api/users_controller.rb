@@ -26,10 +26,6 @@ class Api::UsersController < ApplicationController
     end
   end
 
-  # def edit
-  #   @user.user_locations.build.build_location
-  # end
-  
   def update
     if @user.update(user_params)
       render json: {user: { id: @user.id, username: @user.username, email: @user.email, no_of_checkins: @user.no_of_checkins, user_locations_attributes: @user.user_locations }}
