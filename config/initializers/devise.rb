@@ -282,5 +282,4 @@ Devise.setup do |config|
   # config.omniauth_path_prefix = '/my_engine/users/auth'
 
 
-  config.omniauth :facebook, "826086244449118", "9707ee7275c6ffb2aa06fe15abf3f1e0"
 end
