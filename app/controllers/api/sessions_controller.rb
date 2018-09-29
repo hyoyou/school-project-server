@@ -4,7 +4,7 @@ class Api::SessionsController < ApplicationController
 
   def create
     user = User.find_by(email: params[:user][:email])
-    rail
+  
     if user && user.valid_password?(params[:user][:password])
       token = Auth.create_token(user)
       #returned_user = Auth.decode_token(token)
